@@ -719,14 +719,23 @@ export class JanusClient extends EventEmitter {
   private setupPeerEvents(): void {
     if (!this.pc) {
       return;
+    
     }
+
+    this.pc.addEventListener('connectionstatechange', () => {
+      this.logger.debug(
+        '[JanusClient] connectionstatechange state =>',
+        this.pc?.connectionState
+      );
+    })
     this.pc.addEventListener('iceconnectionstatechange', () => {
       this.logger.debug(
         '[JanusClient] ICE state =>',
         this.pc?.iceConnectionState,
       );
       if (this.pc?.iceConnectionState === 'failed') {
-        this.emit('error', new Error('[JanusClient] ICE connection failed'));
+        // this.emit('error', new Error('[JanusClient] ICE connection failed'));
+        this.logger.debug('[JanusClient] ICE connection failed');
       }
     });
     this.pc.addEventListener('track', (evt) => {
