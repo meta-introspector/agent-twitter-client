@@ -2,7 +2,7 @@
   "name": "agent-twitter-client",
   "description": "A twitter client for agents",
   "keywords": [],
-  "version": "0.0.18",
+  "version": "0.0.18-sfm",
   "main": "dist/default/cjs/index.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
@@ -29,6 +29,7 @@
   "dependencies": {
     "@roamhq/wrtc": "^0.8.0",
     "@sinclair/typebox": "^0.32.20",
+    "@tsconfig/next": "^2.0.3",
     "headers-polyfill": "^3.1.2",
     "json-stable-stringify": "^1.0.2",
     "otpauth": "^9.2.2",
